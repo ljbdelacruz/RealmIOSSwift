@@ -9,23 +9,31 @@
 /* Begin PBXBuildFile section */
 		40AFEF0616810585A93F5760 /* Pods_RealIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A283A934C5321E4C4FD08F0D /* Pods_RealIOS.framework */; };
 		6F93B9DB217F406200A23E65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F93B9DA217F406200A23E65 /* AppDelegate.swift */; };
-		6F93B9DD217F406200A23E65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F93B9DC217F406200A23E65 /* ViewController.swift */; };
 		6F93B9E0217F406200A23E65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F93B9DE217F406200A23E65 /* Main.storyboard */; };
 		6F93B9E3217F406200A23E65 /* RealIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6F93B9E1217F406200A23E65 /* RealIOS.xcdatamodeld */; };
 		6F93B9E5217F406200A23E65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F93B9E4217F406200A23E65 /* Assets.xcassets */; };
 		6F93B9E8217F406200A23E65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F93B9E6217F406200A23E65 /* LaunchScreen.storyboard */; };
+		6F93B9FC217F76B000A23E65 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F93B9FB217F76B000A23E65 /* Food.swift */; };
+		6F93B9FE217F7BB100A23E65 /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F93B9FD217F7BB100A23E65 /* Ingredients.swift */; };
+		6F93BA01217FD9F800A23E65 /* FoodMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F93BA00217FD9F800A23E65 /* FoodMenuViewController.swift */; };
+		6F93BA07217FF23200A23E65 /* Custom1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F93BA05217FF23200A23E65 /* Custom1TableViewCell.swift */; };
+		6F93BA08217FF23200A23E65 /* Custom1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F93BA06217FF23200A23E65 /* Custom1TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		05EDDB53595BDCF62EA0B210 /* Pods-RealIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealIOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-RealIOS/Pods-RealIOS.release.xcconfig"; sourceTree = "<group>"; };
 		6F93B9D7217F406200A23E65 /* RealIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F93B9DA217F406200A23E65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6F93B9DC217F406200A23E65 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6F93B9DF217F406200A23E65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6F93B9E2217F406200A23E65 /* RealIOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RealIOS.xcdatamodel; sourceTree = "<group>"; };
 		6F93B9E4217F406200A23E65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F93B9E7217F406200A23E65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F93B9E9217F406200A23E65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F93B9FB217F76B000A23E65 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		6F93B9FD217F7BB100A23E65 /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
+		6F93BA00217FD9F800A23E65 /* FoodMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMenuViewController.swift; sourceTree = "<group>"; };
+		6F93BA05217FF23200A23E65 /* Custom1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom1TableViewCell.swift; sourceTree = "<group>"; };
+		6F93BA06217FF23200A23E65 /* Custom1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Custom1TableViewCell.xib; sourceTree = "<group>"; };
 		A283A934C5321E4C4FD08F0D /* Pods_RealIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE088FC88F9E56D168833B78 /* Pods-RealIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealIOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RealIOS/Pods-RealIOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,8 +88,10 @@
 		6F93B9D9217F406200A23E65 /* RealIOS */ = {
 			isa = PBXGroup;
 			children = (
+				6F93BA02217FF1FC00A23E65 /* Custom */,
+				6F93B9FF217FD9CB00A23E65 /* ViewControllers */,
+				6F93B9FA217F768500A23E65 /* DataModel */,
 				6F93B9DA217F406200A23E65 /* AppDelegate.swift */,
-				6F93B9DC217F406200A23E65 /* ViewController.swift */,
 				6F93B9DE217F406200A23E65 /* Main.storyboard */,
 				6F93B9E4217F406200A23E65 /* Assets.xcassets */,
 				6F93B9E6217F406200A23E65 /* LaunchScreen.storyboard */,
@@ -89,6 +99,48 @@
 				6F93B9E1217F406200A23E65 /* RealIOS.xcdatamodeld */,
 			);
 			path = RealIOS;
+			sourceTree = "<group>";
+		};
+		6F93B9FA217F768500A23E65 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				6F93B9FB217F76B000A23E65 /* Food.swift */,
+				6F93B9FD217F7BB100A23E65 /* Ingredients.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		6F93B9FF217FD9CB00A23E65 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6F93BA00217FD9F800A23E65 /* FoodMenuViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6F93BA02217FF1FC00A23E65 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				6F93BA03217FF20300A23E65 /* TVCell */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		6F93BA03217FF20300A23E65 /* TVCell */ = {
+			isa = PBXGroup;
+			children = (
+				6F93BA04217FF21100A23E65 /* TVCell1 */,
+			);
+			path = TVCell;
+			sourceTree = "<group>";
+		};
+		6F93BA04217FF21100A23E65 /* TVCell1 */ = {
+			isa = PBXGroup;
+			children = (
+				6F93BA05217FF23200A23E65 /* Custom1TableViewCell.swift */,
+				6F93BA06217FF23200A23E65 /* Custom1TableViewCell.xib */,
+			);
+			path = TVCell1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F93BA08217FF23200A23E65 /* Custom1TableViewCell.xib in Resources */,
 				6F93B9E8217F406200A23E65 /* LaunchScreen.storyboard in Resources */,
 				6F93B9E5217F406200A23E65 /* Assets.xcassets in Resources */,
 				6F93B9E0217F406200A23E65 /* Main.storyboard in Resources */,
@@ -187,11 +240,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-RealIOS/Pods-RealIOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/UITableViewCellAnimation/UITableViewCellAnimation.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITableViewCellAnimation.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -205,8 +260,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F93B9DD217F406200A23E65 /* ViewController.swift in Sources */,
+				6F93BA01217FD9F800A23E65 /* FoodMenuViewController.swift in Sources */,
+				6F93B9FC217F76B000A23E65 /* Food.swift in Sources */,
 				6F93B9E3217F406200A23E65 /* RealIOS.xcdatamodeld in Sources */,
+				6F93B9FE217F7BB100A23E65 /* Ingredients.swift in Sources */,
+				6F93BA07217FF23200A23E65 /* Custom1TableViewCell.swift in Sources */,
 				6F93B9DB217F406200A23E65 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +410,7 @@
 			baseConfigurationReference = CE088FC88F9E56D168833B78 /* Pods-RealIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 93CXP6R5M8;
 				INFOPLIST_FILE = RealIOS/Info.plist;
@@ -368,6 +427,7 @@
 			baseConfigurationReference = 05EDDB53595BDCF62EA0B210 /* Pods-RealIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 93CXP6R5M8;
 				INFOPLIST_FILE = RealIOS/Info.plist;

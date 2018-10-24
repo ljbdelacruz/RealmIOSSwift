@@ -4,19 +4,23 @@ PODS:
   - Realm/Headers (3.11.0)
   - RealmSwift (3.11.0):
     - Realm (= 3.11.0)
+  - UITableViewCellAnimation (1.0.6)
 
 DEPENDENCIES:
   - RealmSwift
+  - UITableViewCellAnimation
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Realm
     - RealmSwift
+    - UITableViewCellAnimation
 
 SPEC CHECKSUMS:
   Realm: 92f09a102692b96a9a10e9617f214f15c5ab85fc
   RealmSwift: 5f0481cd658bb751c509314b964a35eaa264d2cf
+  UITableViewCellAnimation: f4b65d0b85a02aeba2307c04fe97e1c82b3989f2
 
-PODFILE CHECKSUM: 453327df00abcdb7fa94789bb9a49e71012e97a7
+PODFILE CHECKSUM: 3d905b3643732914ed6b11df3e73d5f2eb06ae0d
 
 COCOAPODS: 1.5.0

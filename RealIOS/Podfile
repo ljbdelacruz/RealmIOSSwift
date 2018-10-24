@@ -6,5 +6,6 @@ target 'RealIOS' do
   # Pods for RealIOS
 
 pod 'RealmSwift'
+pod 'UITableViewCellAnimation'
 
 end
