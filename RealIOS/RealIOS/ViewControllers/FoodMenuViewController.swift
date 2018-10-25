@@ -24,8 +24,13 @@ class FoodMenuViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.UIFoodTV.delegate=self;
         self.UIFoodTV.dataSource=self;
+        self.UIFoodTV.register(UINib(nibName: "Custom1TableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTVCell1");
         //searchbar
         self.UIFoodSearchBar.delegate=self;
+        self.configureTableView()
+        self.UIFoodTV.separatorStyle = .none
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +61,8 @@ class FoodMenuViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "foodToIngredients"{
-            
+            let destVC=segue.destination as! IngredientsViewController;
+            destVC.food=self.selectedFood;
         }
     }
     
@@ -76,14 +82,22 @@ extension FoodMenuViewController:UITableViewDelegate, UITableViewDataSource{
         return self.foods?.count ?? 1;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath)
-        cell.textLabel?.text = self.foods?[indexPath.row].name ?? "No Food Added";
-        
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath)
+//        cell.textLabel?.text = self.foods?[indexPath.row].name ?? "No Food Added";
+        let cell=self.UIFoodTV.dequeueReusableCell(withIdentifier: "CustomTVCell1", for: indexPath) as! Custom1TableViewCell;
+        cell.UILabel.text = self.foods?[indexPath.row].name ?? "No Food Added";
         return cell;
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         self.selectedFood=self.foods?[indexPath.row] ?? nil;
+        if selectedFood != nil {
+            performSegue(withIdentifier: "foodToIngredients", sender: nil)
+        }
+    }
+    func configureTableView(){
+        self.UIFoodTV.rowHeight=UITableViewAutomaticDimension;
+        self.UIFoodTV.estimatedRowHeight=120.0;
     }
     
     

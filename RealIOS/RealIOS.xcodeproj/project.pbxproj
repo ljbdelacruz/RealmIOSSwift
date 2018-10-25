@@ -18,6 +18,12 @@
 		6F93BA01217FD9F800A23E65 /* FoodMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F93BA00217FD9F800A23E65 /* FoodMenuViewController.swift */; };
 		6F93BA07217FF23200A23E65 /* Custom1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F93BA05217FF23200A23E65 /* Custom1TableViewCell.swift */; };
 		6F93BA08217FF23200A23E65 /* Custom1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F93BA06217FF23200A23E65 /* Custom1TableViewCell.xib */; };
+		6F93BA0A2180006600A23E65 /* IngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F93BA092180006600A23E65 /* IngredientsViewController.swift */; };
+		6F93BA102180B88300A23E65 /* Checkbox1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F93BA0F2180B88300A23E65 /* Checkbox1.swift */; };
+		6F93BA122180B89600A23E65 /* Checkbox1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F93BA112180B89600A23E65 /* Checkbox1.xib */; };
+		6F93BA152180BC6200A23E65 /* c1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F93BA132180BC6100A23E65 /* c1.png */; };
+		6F93BA162180BC6200A23E65 /* c1n.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F93BA142180BC6200A23E65 /* c1n.png */; };
+		6F93BA182180BDF300A23E65 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F93BA172180BDF300A23E65 /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +40,12 @@
 		6F93BA00217FD9F800A23E65 /* FoodMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMenuViewController.swift; sourceTree = "<group>"; };
 		6F93BA05217FF23200A23E65 /* Custom1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom1TableViewCell.swift; sourceTree = "<group>"; };
 		6F93BA06217FF23200A23E65 /* Custom1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Custom1TableViewCell.xib; sourceTree = "<group>"; };
+		6F93BA092180006600A23E65 /* IngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsViewController.swift; sourceTree = "<group>"; };
+		6F93BA0F2180B88300A23E65 /* Checkbox1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox1.swift; sourceTree = "<group>"; };
+		6F93BA112180B89600A23E65 /* Checkbox1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Checkbox1.xib; sourceTree = "<group>"; };
+		6F93BA132180BC6100A23E65 /* c1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c1.png; sourceTree = "<group>"; };
+		6F93BA142180BC6200A23E65 /* c1n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c1n.png; sourceTree = "<group>"; };
+		6F93BA172180BDF300A23E65 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		A283A934C5321E4C4FD08F0D /* Pods_RealIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE088FC88F9E56D168833B78 /* Pods-RealIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealIOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RealIOS/Pods-RealIOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				6F93BA00217FD9F800A23E65 /* FoodMenuViewController.swift */,
+				6F93BA092180006600A23E65 /* IngredientsViewController.swift */,
+				6F93BA172180BDF300A23E65 /* TestViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -121,6 +135,7 @@
 		6F93BA02217FF1FC00A23E65 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				6F93BA0B2180B83C00A23E65 /* Button */,
 				6F93BA03217FF20300A23E65 /* TVCell */,
 			);
 			path = Custom;
@@ -141,6 +156,25 @@
 				6F93BA06217FF23200A23E65 /* Custom1TableViewCell.xib */,
 			);
 			path = TVCell1;
+			sourceTree = "<group>";
+		};
+		6F93BA0B2180B83C00A23E65 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				6F93BA0C2180B84400A23E65 /* Checkbox1 */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		6F93BA0C2180B84400A23E65 /* Checkbox1 */ = {
+			isa = PBXGroup;
+			children = (
+				6F93BA132180BC6100A23E65 /* c1.png */,
+				6F93BA142180BC6200A23E65 /* c1n.png */,
+				6F93BA0F2180B88300A23E65 /* Checkbox1.swift */,
+				6F93BA112180B89600A23E65 /* Checkbox1.xib */,
+			);
+			path = Checkbox1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,8 +239,11 @@
 			files = (
 				6F93BA08217FF23200A23E65 /* Custom1TableViewCell.xib in Resources */,
 				6F93B9E8217F406200A23E65 /* LaunchScreen.storyboard in Resources */,
+				6F93BA122180B89600A23E65 /* Checkbox1.xib in Resources */,
+				6F93BA152180BC6200A23E65 /* c1.png in Resources */,
 				6F93B9E5217F406200A23E65 /* Assets.xcassets in Resources */,
 				6F93B9E0217F406200A23E65 /* Main.storyboard in Resources */,
+				6F93BA162180BC6200A23E65 /* c1n.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,9 +299,12 @@
 			files = (
 				6F93BA01217FD9F800A23E65 /* FoodMenuViewController.swift in Sources */,
 				6F93B9FC217F76B000A23E65 /* Food.swift in Sources */,
+				6F93BA102180B88300A23E65 /* Checkbox1.swift in Sources */,
 				6F93B9E3217F406200A23E65 /* RealIOS.xcdatamodeld in Sources */,
 				6F93B9FE217F7BB100A23E65 /* Ingredients.swift in Sources */,
+				6F93BA0A2180006600A23E65 /* IngredientsViewController.swift in Sources */,
 				6F93BA07217FF23200A23E65 /* Custom1TableViewCell.swift in Sources */,
+				6F93BA182180BDF300A23E65 /* TestViewController.swift in Sources */,
 				6F93B9DB217F406200A23E65 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,7 +454,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 93CXP6R5M8;
 				INFOPLIST_FILE = RealIOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ljbdelacruz.RealIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -431,7 +474,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 93CXP6R5M8;
 				INFOPLIST_FILE = RealIOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ljbdelacruz.RealIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
