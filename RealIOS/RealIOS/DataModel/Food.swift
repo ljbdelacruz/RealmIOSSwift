@@ -12,6 +12,7 @@ import RealmSwift
 class Food:Object{
     //dynamic allows this variable to be monitored at runtime
     @objc dynamic var name:String = "";
+    var isSelected:Bool=false;
     //forward relationship
     var ingredients=List<Ingredients>();    
     convenience init(name:String){

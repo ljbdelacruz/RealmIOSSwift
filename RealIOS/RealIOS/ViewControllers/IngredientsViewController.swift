@@ -79,11 +79,13 @@ extension IngredientsViewController{
         self.UIIngredientTV.reloadData();
     }
     func Save(item:Ingredients){
-        do{
-            try self.realm.write{
-                realm.add(item);
-            }
-        }catch{print("\(error.localizedDescription)")}
+        print("Dont know how to save data from relationshional");
+//        self.food?.ingredients.append(item);
+//        do{
+//            try self.realm.write{
+//                realm.add(item);
+//            }
+//        }catch{print("\(error.localizedDescription)")}
         self.LoadData();
     }
 }

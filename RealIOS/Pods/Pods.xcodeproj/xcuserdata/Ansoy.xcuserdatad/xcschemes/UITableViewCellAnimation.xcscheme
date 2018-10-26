@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7F58ED005BB55215676018AD56A1CB93"
+               BlueprintIdentifier = "45C5240ED67D2253141554409DF449B0"
                BlueprintName = "UITableViewCellAnimation"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "UITableViewCellAnimation.framework">

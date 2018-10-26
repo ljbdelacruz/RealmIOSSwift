@@ -1,26 +1,30 @@
 PODS:
-  - Realm (3.11.0):
-    - Realm/Headers (= 3.11.0)
-  - Realm/Headers (3.11.0)
-  - RealmSwift (3.11.0):
-    - Realm (= 3.11.0)
+  - Realm (3.11.1):
+    - Realm/Headers (= 3.11.1)
+  - Realm/Headers (3.11.1)
+  - RealmSwift (3.11.1):
+    - Realm (= 3.11.1)
+  - SwipeCellKit (2.5.0)
   - UITableViewCellAnimation (1.0.6)
 
 DEPENDENCIES:
   - RealmSwift
+  - SwipeCellKit
   - UITableViewCellAnimation
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Realm
     - RealmSwift
+    - SwipeCellKit
     - UITableViewCellAnimation
 
 SPEC CHECKSUMS:
-  Realm: 92f09a102692b96a9a10e9617f214f15c5ab85fc
-  RealmSwift: 5f0481cd658bb751c509314b964a35eaa264d2cf
+  Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
+  RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
+  SwipeCellKit: d8f2617538ce3021cb0a11d1b93856a06a2f2e20
   UITableViewCellAnimation: f4b65d0b85a02aeba2307c04fe97e1c82b3989f2
 
-PODFILE CHECKSUM: 3d905b3643732914ed6b11df3e73d5f2eb06ae0d
+PODFILE CHECKSUM: f8e88e0d15571982ae628194abf675dabe824262
 
 COCOAPODS: 1.5.0

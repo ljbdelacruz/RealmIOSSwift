@@ -7,5 +7,6 @@ target 'RealIOS' do
 
 pod 'RealmSwift'
 pod 'UITableViewCellAnimation'
+pod 'SwipeCellKit'
 
 end

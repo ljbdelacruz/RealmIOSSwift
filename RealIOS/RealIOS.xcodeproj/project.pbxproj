@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		40AFEF0616810585A93F5760 /* Pods_RealIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A283A934C5321E4C4FD08F0D /* Pods_RealIOS.framework */; };
+		6F0A7DF32182A60600DF996A /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F0A7DF22182A60600DF996A /* delete.png */; };
 		6F93B9DB217F406200A23E65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F93B9DA217F406200A23E65 /* AppDelegate.swift */; };
 		6F93B9E0217F406200A23E65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F93B9DE217F406200A23E65 /* Main.storyboard */; };
 		6F93B9E3217F406200A23E65 /* RealIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6F93B9E1217F406200A23E65 /* RealIOS.xcdatamodeld */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		05EDDB53595BDCF62EA0B210 /* Pods-RealIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealIOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-RealIOS/Pods-RealIOS.release.xcconfig"; sourceTree = "<group>"; };
+		6F0A7DF22182A60600DF996A /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		6F93B9D7217F406200A23E65 /* RealIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F93B9DA217F406200A23E65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F93B9DF217F406200A23E65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,6 +81,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6F0A7DF42182A61500DF996A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				6F0A7DF22182A60600DF996A /* delete.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		6F93B9CE217F406100A23E65 = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +110,7 @@
 		6F93B9D9217F406200A23E65 /* RealIOS */ = {
 			isa = PBXGroup;
 			children = (
+				6F0A7DF42182A61500DF996A /* Assets */,
 				6F93BA02217FF1FC00A23E65 /* Custom */,
 				6F93B9FF217FD9CB00A23E65 /* ViewControllers */,
 				6F93B9FA217F768500A23E65 /* DataModel */,
@@ -237,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F0A7DF32182A60600DF996A /* delete.png in Resources */,
 				6F93BA08217FF23200A23E65 /* Custom1TableViewCell.xib in Resources */,
 				6F93B9E8217F406200A23E65 /* LaunchScreen.storyboard in Resources */,
 				6F93BA122180B89600A23E65 /* Checkbox1.xib in Resources */,
@@ -277,12 +289,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-RealIOS/Pods-RealIOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 				"${BUILT_PRODUCTS_DIR}/UITableViewCellAnimation/UITableViewCellAnimation.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITableViewCellAnimation.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

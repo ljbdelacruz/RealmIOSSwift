@@ -9,6 +9,8 @@
 import UIKit
 import RealmSwift
 import UITableViewCellAnimation
+import SwipeCellKit
+
 
 class FoodMenuViewController: UIViewController {
     //
@@ -18,19 +20,18 @@ class FoodMenuViewController: UIViewController {
     
     @IBOutlet weak var UIFoodTV: UITableView!
     @IBOutlet weak var UIFoodSearchBar: UISearchBar!
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         super.viewDidLoad()
         self.LoadData();
         // Do any additional setup after loading the view.
         self.UIFoodTV.delegate=self;
         self.UIFoodTV.dataSource=self;
-        self.UIFoodTV.register(UINib(nibName: "Custom1TableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTVCell1");
+        //registering CustomTableViewCell
+//        self.UIFoodTV.register(UINib(nibName: "Custom1TableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTVCell1");
         //searchbar
         self.UIFoodSearchBar.delegate=self;
         self.configureTableView()
-        self.UIFoodTV.separatorStyle = .none
-        
-        
+//        self.UIFoodTV.separatorStyle = .none
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +51,7 @@ class FoodMenuViewController: UIViewController {
             //action invoked when user added new item button
             let food=Food(name: foodTF!.text!);
             self.SaveData(food: food);
+            self.CreateUIAlertMessage(message: food.name+" has been added!")
         })
         let cancelAction=UIAlertAction(title: "Cancel", style: .default, handler: {
             (action) in
@@ -75,8 +77,25 @@ extension FoodMenuViewController: UISearchBarDelegate{
         
     }
 }
+//MARK: -SwipeTableView
+extension FoodMenuViewController:SwipeTableViewCellDelegate{
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            // handle action by updating model with deletion
+            self.RemoveData(food: self.foods![indexPath.row]);
+            self.CreateUIAlertMessage(message: "Food Removed!")
+        }
+        // customize the action appearance
+        deleteAction.image = UIImage(named: "delete")
+        return [deleteAction]
+    }
+}
+
+
 //MARK: -UITableView Functionalities
 extension FoodMenuViewController:UITableViewDelegate, UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //?? - nil coalesceng operator if foods is nil it returns one else it return its value
         return self.foods?.count ?? 1;
@@ -84,8 +103,10 @@ extension FoodMenuViewController:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath)
 //        cell.textLabel?.text = self.foods?[indexPath.row].name ?? "No Food Added";
-        let cell=self.UIFoodTV.dequeueReusableCell(withIdentifier: "CustomTVCell1", for: indexPath) as! Custom1TableViewCell;
-        cell.UILabel.text = self.foods?[indexPath.row].name ?? "No Food Added";
+//        let cell=self.UIFoodTV.dequeueReusableCell(withIdentifier: "CustomTVCell1", for: indexPath) as! SwipeTableViewCell;
+        let cell = UIFoodTV.dequeueReusableCell(withIdentifier: "FoodCell") as! SwipeTableViewCell
+        cell.delegate=self;
+        cell.textLabel?.text = self.foods?[indexPath.row].name ?? "No Food Added";
         return cell;
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -96,13 +117,12 @@ extension FoodMenuViewController:UITableViewDelegate, UITableViewDataSource{
         }
     }
     func configureTableView(){
-        self.UIFoodTV.rowHeight=UITableViewAutomaticDimension;
-        self.UIFoodTV.estimatedRowHeight=120.0;
+//        self.UIFoodTV.rowHeight=UITableViewAutomaticDimension;
+        self.UIFoodTV.rowHeight=80.0;
     }
     
     
 }
-
 //MARK: -Realm Functionalities
 extension FoodMenuViewController{
     func SaveData(food:Food){
@@ -115,8 +135,31 @@ extension FoodMenuViewController{
         }
         self.UIFoodTV.reloadData();
     }
+    func RemoveData(food:Food){
+        do{
+            try realm.write {
+                realm.delete(food);
+            }
+        }catch{
+            print("\(error.localizedDescription)");
+        }
+        self.UIFoodTV.reloadData()
+    }
     func LoadData(){
         self.foods=realm.objects(Food.self)
     }
 }
+
+extension FoodMenuViewController{
+    func CreateUIAlertMessage(message:String){
+        let uialert=UIAlertController(title: message, message: "", preferredStyle: .alert)
+        let okAction=UIAlertAction(title: "OK", style: .default, handler: {
+            (action) in
+        })
+        uialert.addAction(okAction);
+        present(uialert, animated: true, completion: nil)
+
+    }
+}
+
 

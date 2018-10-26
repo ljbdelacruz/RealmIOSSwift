@@ -13,7 +13,10 @@ class Checkbox1: UIButton {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.SetImage();
-    }    
+    }
+    func Set(ic:Bool){
+        self.isChecked=ic;
+    }
     func Toggle(){
         self.isChecked = !self.isChecked;
         self.SetImage();
