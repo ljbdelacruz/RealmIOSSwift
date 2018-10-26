@@ -11,16 +11,26 @@ import RealmSwift
 
 
 class CustomRealm {
-    
-    //MARK: -Ingredients functionality
-    
-    
-    //MARK: -Food Functionality
-    static func all(in realm: Realm = try! Realm()) -> Results<Food> {
-        return realm.objects(Food.self)
+    static func save(in realm: Realm = try! Realm(), item:Object)->Bool {
+        do{
+            try realm.write{
+                realm.add(item)
+            }
+            return true;
+        }catch{
+            print("\(error.localizedDescription)");
+            return false;
+        }
     }
-    static func likeName(in realm: Realm = try! Realm(), searchText:String)-> Results<Food>{
-        let predicate=NSPredicate(format: "name CONTAINS[cd] %@", searchText)
-        return realm.objects(Food.self).filter(predicate);
+    static func remove(in realm: Realm = try! Realm(), item:Object)->Bool {
+        do{
+            try realm.write{
+                realm.delete(item)
+            }
+            return true;
+        }catch{
+            print("\(error.localizedDescription)");
+            return false;
+        }
     }
 }

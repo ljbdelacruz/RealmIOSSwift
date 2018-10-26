@@ -23,4 +23,22 @@ class Ingredients:Object{
         self.name=name;
         self.quantity=q;
     }
+    static func all(in realm: Realm = try! Realm()) -> Results<Ingredients> {
+        return realm.objects(Ingredients.self).sorted(byKeyPath: "name");
+    }
+    static func likeName(in realm: Realm = try! Realm(), search:String) -> Results<Ingredients> {
+        return realm.objects(Ingredients.self).filter(NSPredicate(format: "name CONTAINS[cd] %@", search)).sorted(byKeyPath: "name");
+    }
+    static func save(in realm: Realm = try! Realm(), ingredient:Ingredients)->Bool {
+        return CustomRealm.save(in:realm, item:ingredient)
+    }
+    static func remove(in realm: Realm = try! Realm(), ingredient:Ingredients)->Bool {
+        return CustomRealm.remove(in:realm, item:ingredient)
+    }
+    
+    
+    
+    
+    
+    
 }

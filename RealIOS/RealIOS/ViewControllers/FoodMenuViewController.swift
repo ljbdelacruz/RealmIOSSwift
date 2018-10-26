@@ -22,7 +22,7 @@ class FoodMenuViewController: UIViewController {
     @IBOutlet weak var UIFoodSearchBar: UISearchBar!
     override func viewDidLoad(){
         super.viewDidLoad()
-        self.foods=CustomRealm.all();
+        self.foods=Food.all(in:self.realm);
         // Do any additional setup after loading the view.
         self.UIFoodTV.delegate=self;
         self.UIFoodTV.dataSource=self;
@@ -59,7 +59,6 @@ class FoodMenuViewController: UIViewController {
         uialert.addAction(cancelAction);
         present(uialert, animated: true, completion: nil)
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "foodToIngredients"{
             let destVC=segue.destination as! IngredientsViewController;
@@ -68,22 +67,19 @@ class FoodMenuViewController: UIViewController {
     }
     
 }
+
 //MARK: -UISearchBar Functionalities
 extension FoodMenuViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if searchBar.text!.count > 0{
-            self.foods=CustomRealm.likeName(searchText: searchBar.text!);
-        }else{
-            self.foods=CustomRealm.all()
-        }
-        self.UIFoodTV.reloadData();
+        self.LoadData(search: searchBar.text!);
     }
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
         if searchText.count <= 0{
-            self.foods=CustomRealm.all()
+            self.LoadData(search: searchText);
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder();
+            }
         }
-        self.UIFoodTV.reloadData();
-        
     }
 }
 //MARK: -SwipeTableView
@@ -102,7 +98,6 @@ extension FoodMenuViewController:SwipeTableViewCellDelegate{
 }
 //MARK: -UITableView Functionalities
 extension FoodMenuViewController:UITableViewDelegate, UITableViewDataSource{
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //?? - nil coalesceng operator if foods is nil it returns one else it return its value
         return self.foods?.count ?? 1;
@@ -131,24 +126,22 @@ extension FoodMenuViewController:UITableViewDelegate, UITableViewDataSource{
 //MARK: -Realm Functionalities
 extension FoodMenuViewController{
     func SaveData(food:Food){
-        do{
-            try realm.write{
-                realm.add(food)
-            }
-        }catch{
-            print("\(error.localizedDescription)");
+        if Food.save(in:self.realm, food: food){
+            self.UIFoodTV.reloadData();
         }
-        self.UIFoodTV.reloadData();
     }
     func RemoveData(food:Food){
-        do{
-            try realm.write {
-                realm.delete(food);
-            }
-        }catch{
-            print("\(error.localizedDescription)");
+        if Food.remove(in: self.realm, food: food) {
+            self.UIFoodTV.reloadData()
         }
-        self.UIFoodTV.reloadData()
+    }
+    func LoadData(search:String){
+        if search.count > 0 {
+            self.foods=Food.likeName(in: self.realm,searchText: search);
+        }else{
+            self.foods=Food.all(in: self.realm);
+        }
+        self.UIFoodTV.reloadData();
     }
 }
 //MARK: -UIAlert functionality
@@ -162,5 +155,6 @@ extension FoodMenuViewController{
         present(uialert, animated: true, completion: nil)
     }
 }
+
 
 
