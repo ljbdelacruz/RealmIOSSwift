@@ -22,7 +22,7 @@ class FoodMenuViewController: UIViewController {
     @IBOutlet weak var UIFoodSearchBar: UISearchBar!
     override func viewDidLoad(){
         super.viewDidLoad()
-        self.LoadData();
+        self.foods=CustomRealm.all();
         // Do any additional setup after loading the view.
         self.UIFoodTV.delegate=self;
         self.UIFoodTV.dataSource=self;
@@ -33,7 +33,6 @@ class FoodMenuViewController: UIViewController {
         self.configureTableView()
 //        self.UIFoodTV.separatorStyle = .none
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -69,11 +68,21 @@ class FoodMenuViewController: UIViewController {
     }
     
 }
-
-
 //MARK: -UISearchBar Functionalities
 extension FoodMenuViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if searchBar.text!.count > 0{
+            self.foods=CustomRealm.likeName(searchText: searchBar.text!);
+        }else{
+            self.foods=CustomRealm.all()
+        }
+        self.UIFoodTV.reloadData();
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.count <= 0{
+            self.foods=CustomRealm.all()
+        }
+        self.UIFoodTV.reloadData();
         
     }
 }
@@ -91,8 +100,6 @@ extension FoodMenuViewController:SwipeTableViewCellDelegate{
         return [deleteAction]
     }
 }
-
-
 //MARK: -UITableView Functionalities
 extension FoodMenuViewController:UITableViewDelegate, UITableViewDataSource{
     
@@ -120,8 +127,6 @@ extension FoodMenuViewController:UITableViewDelegate, UITableViewDataSource{
 //        self.UIFoodTV.rowHeight=UITableViewAutomaticDimension;
         self.UIFoodTV.rowHeight=80.0;
     }
-    
-    
 }
 //MARK: -Realm Functionalities
 extension FoodMenuViewController{
@@ -145,11 +150,8 @@ extension FoodMenuViewController{
         }
         self.UIFoodTV.reloadData()
     }
-    func LoadData(){
-        self.foods=realm.objects(Food.self)
-    }
 }
-
+//MARK: -UIAlert functionality
 extension FoodMenuViewController{
     func CreateUIAlertMessage(message:String){
         let uialert=UIAlertController(title: message, message: "", preferredStyle: .alert)
@@ -158,7 +160,6 @@ extension FoodMenuViewController{
         })
         uialert.addAction(okAction);
         present(uialert, animated: true, completion: nil)
-
     }
 }
 

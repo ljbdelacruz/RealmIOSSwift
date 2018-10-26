@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		40AFEF0616810585A93F5760 /* Pods_RealIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A283A934C5321E4C4FD08F0D /* Pods_RealIOS.framework */; };
 		6F0A7DF32182A60600DF996A /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F0A7DF22182A60600DF996A /* delete.png */; };
+		6F0A7DF7218308D800DF996A /* CustomRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0A7DF6218308D800DF996A /* CustomRealm.swift */; };
 		6F93B9DB217F406200A23E65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F93B9DA217F406200A23E65 /* AppDelegate.swift */; };
 		6F93B9E0217F406200A23E65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F93B9DE217F406200A23E65 /* Main.storyboard */; };
 		6F93B9E3217F406200A23E65 /* RealIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6F93B9E1217F406200A23E65 /* RealIOS.xcdatamodeld */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		05EDDB53595BDCF62EA0B210 /* Pods-RealIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealIOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-RealIOS/Pods-RealIOS.release.xcconfig"; sourceTree = "<group>"; };
 		6F0A7DF22182A60600DF996A /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		6F0A7DF6218308D800DF996A /* CustomRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRealm.swift; sourceTree = "<group>"; };
 		6F93B9D7217F406200A23E65 /* RealIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F93B9DA217F406200A23E65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F93B9DF217F406200A23E65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,6 +91,14 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		6F0A7DF5218308B300DF996A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6F0A7DF6218308D800DF996A /* CustomRealm.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		6F93B9CE217F406100A23E65 = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +120,7 @@
 		6F93B9D9217F406200A23E65 /* RealIOS */ = {
 			isa = PBXGroup;
 			children = (
+				6F0A7DF5218308B300DF996A /* Services */,
 				6F0A7DF42182A61500DF996A /* Assets */,
 				6F93BA02217FF1FC00A23E65 /* Custom */,
 				6F93B9FF217FD9CB00A23E65 /* ViewControllers */,
@@ -317,6 +328,7 @@
 				6F93B9E3217F406200A23E65 /* RealIOS.xcdatamodeld in Sources */,
 				6F93B9FE217F7BB100A23E65 /* Ingredients.swift in Sources */,
 				6F93BA0A2180006600A23E65 /* IngredientsViewController.swift in Sources */,
+				6F0A7DF7218308D800DF996A /* CustomRealm.swift in Sources */,
 				6F93BA07217FF23200A23E65 /* Custom1TableViewCell.swift in Sources */,
 				6F93BA182180BDF300A23E65 /* TestViewController.swift in Sources */,
 				6F93B9DB217F406200A23E65 /* AppDelegate.swift in Sources */,
