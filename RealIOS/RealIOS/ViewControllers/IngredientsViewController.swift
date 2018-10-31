@@ -79,6 +79,7 @@ extension IngredientsViewController{
         self.UIIngredientTV.reloadData();
     }
     func Save(item:Ingredients){
+//        self.food?.ingredients.append(item);
         print("Dont know how to save data from relationshional");
 //        self.food?.ingredients.append(item);
 //        do{
