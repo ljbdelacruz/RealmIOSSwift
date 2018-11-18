@@ -36,9 +36,5 @@ class Food:Object{
         return CustomRealm.remove(in: realm, item:food)
     }
 
-    
-    
-    
-    
 }
 

@@ -13,16 +13,14 @@ import SwipeCellKit
 
 
 class FoodMenuViewController: UIViewController {
-    //
-    var foods:Results<Food>?;
-    let realm = try! Realm();
-    var selectedFood:Food?;
-    
+
+    var presenter:VCMenuPresenter?;
     @IBOutlet weak var UIFoodTV: UITableView!
     @IBOutlet weak var UIFoodSearchBar: UISearchBar!
     override func viewDidLoad(){
         super.viewDidLoad()
-        self.foods=Food.all(in:self.realm);
+        self.presenter=VCMenuPresenter();
+        self.presenter?.delegate=self;
         // Do any additional setup after loading the view.
         self.UIFoodTV.delegate=self;
         self.UIFoodTV.dataSource=self;
@@ -49,8 +47,7 @@ class FoodMenuViewController: UIViewController {
             (action) in
             //action invoked when user added new item button
             let food=Food(name: foodTF!.text!);
-            self.SaveData(food: food);
-            self.CreateUIAlertMessage(message: food.name+" has been added!")
+            self.presenter?.SaveNew(food: food);
         })
         let cancelAction=UIAlertAction(title: "Cancel", style: .default, handler: {
             (action) in
@@ -62,20 +59,19 @@ class FoodMenuViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "foodToIngredients"{
             let destVC=segue.destination as! IngredientsViewController;
-            destVC.food=self.selectedFood;
+            destVC.food=self.presenter?.selectedFood;
         }
     }
-    
 }
 
 //MARK: -UISearchBar Functionalities
 extension FoodMenuViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.LoadData(search: searchBar.text!);
+        self.presenter?.LoadData(searchText: searchBar.text!)
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
         if searchText.count <= 0{
-            self.LoadData(search: searchText);
+            self.presenter?.LoadData(searchText: searchText)
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder();
             }
@@ -88,8 +84,7 @@ extension FoodMenuViewController:SwipeTableViewCellDelegate{
         guard orientation == .right else { return nil }
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
             // handle action by updating model with deletion
-            self.RemoveData(food: self.foods![indexPath.row]);
-            self.CreateUIAlertMessage(message: "Food Removed!")
+            self.presenter?.RemoveData(index:indexPath.row);
         }
         // customize the action appearance
         deleteAction.image = UIImage(named: "delete")
@@ -100,59 +95,39 @@ extension FoodMenuViewController:SwipeTableViewCellDelegate{
 extension FoodMenuViewController:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //?? - nil coalesceng operator if foods is nil it returns one else it return its value
-        return self.foods?.count ?? 1;
+        return self.presenter?.foods?.count ?? 1;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath)
-//        cell.textLabel?.text = self.foods?[indexPath.row].name ?? "No Food Added";
-//        let cell=self.UIFoodTV.dequeueReusableCell(withIdentifier: "CustomTVCell1", for: indexPath) as! SwipeTableViewCell;
         let cell = UIFoodTV.dequeueReusableCell(withIdentifier: "FoodCell") as! SwipeTableViewCell
         cell.delegate=self;
-        cell.textLabel?.text = self.foods?[indexPath.row].name ?? "No Food Added";
+        cell.textLabel?.text = self.presenter!.foods?[indexPath.row].name ?? "No Food Added";
         return cell;
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        self.selectedFood=self.foods?[indexPath.row] ?? nil;
-        if selectedFood != nil {
+        self.presenter!.selectedFood=self.presenter!.foods?[indexPath.row] ?? nil;
+        if self.presenter?.selectedFood != nil {
             performSegue(withIdentifier: "foodToIngredients", sender: nil)
         }
     }
     func configureTableView(){
-//        self.UIFoodTV.rowHeight=UITableViewAutomaticDimension;
         self.UIFoodTV.rowHeight=80.0;
     }
 }
-//MARK: -Realm Functionalities
-extension FoodMenuViewController{
-    func SaveData(food:Food){
-        if Food.save(in:self.realm, food: food){
-            self.UIFoodTV.reloadData();
-        }
-    }
-    func RemoveData(food:Food){
-        if Food.remove(in: self.realm, food: food) {
-            self.UIFoodTV.reloadData()
-        }
-    }
-    func LoadData(search:String){
-        if search.count > 0 {
-            self.foods=Food.likeName(in: self.realm,searchText: search);
-        }else{
-            self.foods=Food.all(in: self.realm);
-        }
+extension FoodMenuViewController:VCMenuDelegate{
+    func SuccessProcess(message:String) {
+        self.CreateUIAlertMessage(message: message);
         self.UIFoodTV.reloadData();
+    }
+    func FailedProcess(message:String) {
+        self.CreateUIAlertMessage(message: message);
     }
 }
 //MARK: -UIAlert functionality
 extension FoodMenuViewController{
     func CreateUIAlertMessage(message:String){
-        let uialert=UIAlertController(title: message, message: "", preferredStyle: .alert)
-        let okAction=UIAlertAction(title: "OK", style: .default, handler: {
-            (action) in
-        })
-        uialert.addAction(okAction);
-        present(uialert, animated: true, completion: nil)
+        let uialert=self.presenter?.CreateUIAlertMessage(message: message);
+        present(uialert!, animated: true, completion: nil)
     }
 }
 

@@ -53,7 +53,7 @@ open class SwipeTableViewCell: UITableViewCell {
     }
     
     /// :nodoc:
-    override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         
@@ -124,7 +124,7 @@ open class SwipeTableViewCell: UITableViewCell {
      
         let point = convert(point, to: superview)
 
-        if !UIAccessibilityIsVoiceOverRunning() {
+        if !UIAccessibility.isVoiceOverRunning {
             for cell in tableView?.swipeCells ?? [] {
                 if (cell.state == .left || cell.state == .right) && !cell.contains(point: point) {
                     tableView?.hideSwipeCell()
